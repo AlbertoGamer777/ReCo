@@ -1,0 +1,1 @@
+Resolver Iyección sql en sqla.py

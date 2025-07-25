@@ -1,0 +1,23 @@
+CREATE ROLE "Program-Admin" WITH
+	LOGIN
+	SUPERUSER
+	CREATEDB
+	CREATEROLE
+	INHERIT
+	REPLICATION
+	BYPASSRLS
+	CONNECTION LIMIT -1
+	PASSWORD 'xxxxxx';
+COMMENT ON ROLE "Program-Admin" IS 'Program - Daily Python - Admin mode';
+
+
+CREATE DATABASE "Pruebas DB"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LOCALE_PROVIDER = 'libc'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+COMMENT ON DATABASE "Pruebas DB"
+    IS 'Daily';
