@@ -7,28 +7,22 @@ def clear():
     else:
         os.system("clear")
 
-cnumber=int(input("Number of Tables: "))
+ntname = str(input("New Table Name: "))
+cnumber=int(input("Number of Columns: "))
 aux0 = 0
-columns = dict({})
-ctrinner_template = ()
+ctrinner_template = ("")
 for i in range(1,cnumber+1)[::-1]:
     aux0 += 1
-    ntname = str(input("New Table Name ("+format(aux0)+"/"+format(cnumber)+")"))
-    ntdtype = str(input("Data Type of New Table ("+format(aux0)+"/"+format(cnumber)+")"))
+    ncname = str(input("New Column Name ("+format(aux0)+"/"+format(cnumber)+"): "))
+    ncdtype = str(input("Data Type of New Column ("+format(aux0)+"/"+format(cnumber)+"): "))
+    ncaargument = str(input("New Column Aditional Argument ("+format(aux0)+"/"+format(cnumber)+") (Press enter if not): "))
     clear()
-    columns[ntname] = ntdtype
-    aux_keydict = list(columns)
-    aux_cnumber = len(aux_keydict)
-    if aux_cnumber != cnumber:
-        print("Warning: The number of columns indicated to the program is not the same as the number of columns the number of columns supplied")
-    
+    ctrinner_template += (ncname + " " + ncdtype + " " + ncaargument + """
+            """)
     print("Sub-step 1/2 Completed")
-
-
 print("Form completed, sending instruction/s...")
 aux1 = 0
-for i in range(1,cnumber+1)[::-1]:
-    print("""
-                CREATE TABLE """,ntname,""" (
-                """+ctrinner_template+""")
-                """)
+print("""
+            CREATE TABLE """,ntname,""" (
+            """+ctrinner_template+""")
+            """)
